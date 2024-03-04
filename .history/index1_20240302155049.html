@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dropdown--label {
+            position: relative;
+            height: 45px;
+            width: 300px;
+            line-height: 46px;
+            display: inline-block;
+        }
+
+        .dropdown__checkbox {
+            position: absolute; left: -2000000px;
+        }
+
+        .dropdown__text {
+            cursor: pointer;
+            border: 2px solid #DEE5FF;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px #DEE5FF;
+            display: block;
+            width: 100%;
+            background: #fff;
+            color: #262E47;
+            font-weight: bold;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            
+            .dropdown__arrow {
+                width: 10px;
+                height: 10px;
+                border-right: 2px solid #616D90;
+                border-bottom: 2px solid #616D90;
+                margin-left: auto;
+                transform: rotate(45deg);
+                transition: all ease-in 0.3s;
+                position: relative;
+                top: -2px;
+            }
+        }
+
+        .dropdown__list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 5;
+            opacity: 0;
+            visibility: hidden;
+            top: 50%;
+            transition: all ease-out 0.3s;
+            box-shadow: 0px 14px 43px 0px #DEE5FF;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            max-height: 200px;
+        }
+
+        .dropdown__checkbox:checked ~ .dropdown__list {
+            top: 120%;
+            opacity: 1;
+            visibility: visible;
+            transition: all ease-in 0.3s;
+        }
+
+        .dropdown__checkbox:checked ~ .dropdown__text {
+            .dropdown--arrow {
+            transform: rotate(-135deg);
+            top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <label class="dropdown--label">
+            <input type="checkbox" class="dropdown--checkbox"/>
+            <span class="dropdown--text">
+                Top reviews
+            <span class="dropdown--arrow"></span>
+            </span>
+            
+            <div class="dropdown--list">
+                <ul>
+                    <li><a href="">Most recent</a></li>
+                    <li><a href="">Top reviews</a></li>
+                </ul>
+            </div>
+            
+        </label>
+    </div>
+</body>
+</html>
